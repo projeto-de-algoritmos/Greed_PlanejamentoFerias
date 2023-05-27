@@ -11,7 +11,8 @@ body {
   align-items: center;
 
   height: 100vh;
-  width: 210vh;
+  width: 100%;
+  max-width: 100%;
   background-image: url(../../assets/FGA.jpg);
   background-size: cover;
   margin-right: 0;
@@ -30,13 +31,13 @@ body {
   background: linear-gradient(to right, #4CAF50, #2E8B57);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: rgb(9, 9, 9);
-  padding: 40px 80px;
+  padding: 20px 40px; /* Reduzido o tamanho do padding para melhorar a responsividade */
   border-radius: 25px;
   align-items: center;
 
   font-family: "Arial", sans-serif;
-  font-size: 20px;
-  margin: 70px;
+  font-size: 16px; /* Reduzido o tamanho da fonte para melhorar a responsividade */
+  margin: 30px; /* Reduzido o espaçamento para melhorar a responsividade */
   cursor: pointer;
 }
 
@@ -50,4 +51,14 @@ body {
 .button span {
   display: inline-block;
   vertical-align: middle;
+}
+
+/* Adicionando media queries para estilos responsivos */
+@media screen and (max-width: 768px) {
+  /* Estilos aplicados em telas menores que 768px de largura */
+  .button {
+    padding: 16px 32px;
+    font-size: 14px;
+    margin: 20px;
+  }
 }
