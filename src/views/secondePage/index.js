@@ -7,7 +7,7 @@ function Motivation() {
 
   let navigate = useNavigate()
   function navigateToPage() {
-    navigate('/Schedule');
+    navigate('/create-schedule');
   }
 
   return (
