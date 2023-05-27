@@ -8,23 +8,19 @@ function ActivityForm({ onAddActivity }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Verifica se os campos estão preenchidos
     if (!start || !end || !name) {
       alert('Por favor, preencha todos os campos');
       return;
     }
 
-    // Cria um objeto de atividade com os valores do formulário
     const newActivity = {
       start: parseInt(start),
       end: parseInt(end),
       name: name
     };
 
-    // Chama a função de callback para adicionar a atividade
     onAddActivity(newActivity);
 
-    // Limpa os campos do formulário
     setStart('');
     setEnd('');
     setName('');
@@ -32,34 +28,42 @@ function ActivityForm({ onAddActivity }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Início:
-        <input
-          type="number"
-          value={start}
-          onChange={(event) => setStart(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Fim:
-        <input
-          type="number"
-          value={end}
-          onChange={(event) => setEnd(event.target.value)}
-        />
-      </label>
+      <div className="input-group">
+        <div className="input-group-item">
+          <label>
+            Início:
+            <input
+              type="number"
+              className="input"
+              value={start}
+              onChange={(event) => setStart(event.target.value)}
+            />
+          </label>
+        </div>
+        <div className="input-group-item">
+          <label>
+            Fim:
+            <input
+              type="number"
+              className="input"
+              value={end}
+              onChange={(event) => setEnd(event.target.value)}
+            />
+          </label>
+        </div>
+      </div>
       <br />
       <label>
         Nome:
         <input
           type="text"
+          className="input"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
       </label>
       <br />
-      <button type="submit">Adicionar Atividade</button>
+      <button className="button" type="submit">Adicionar Atividade</button>
     </form>
   );
 }

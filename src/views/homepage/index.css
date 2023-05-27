@@ -53,9 +53,7 @@ body {
   vertical-align: middle;
 }
 
-/* Adicionando media queries para estilos responsivos */
 @media screen and (max-width: 768px) {
-  /* Estilos aplicados em telas menores que 768px de largura */
   .button {
     padding: 16px 32px;
     font-size: 14px;

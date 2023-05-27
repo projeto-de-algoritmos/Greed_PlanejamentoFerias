@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ActivityForm from './ActivityForm';
+import './index.css';
+
 
 function CreateSchedule() {
   const [activities, setActivities] = useState([]);
@@ -29,22 +31,24 @@ function CreateSchedule() {
   };
 
   return (
-    <div>
-      <h2>Adicionar Atividade</h2>
-      <ActivityForm onAddActivity={handleAddActivity} />
+    <body className='body'>
+      <div className="back">
+        <h2>Adicionar Atividade</h2>
+        <ActivityForm onAddActivity={handleAddActivity} />
 
-      {/* Exibir as atividades adicionadas */}
-      <h2>Atividades Adicionadas</h2>
-      <ul>
-        {activities.map((activity, index) => (
-          <li key={index}>
-            {activity.name} - Início: {activity.start}, Fim: {activity.end}
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleGoToSchedule}>Ir para o Cronograma</button>
-      <button onClick={handleClearActivities}>Limpar Atividades</button>
-    </div>
+        <ul>
+        <h2>Atividades Adicionadas</h2>
+          {activities.map((activity, index) => (
+            <li key={index}>
+              {activity.name} - Início: {activity.start}, Fim: {activity.end}
+            </li>
+          ))}
+        </ul>
+        <button className="button" onClick={handleGoToSchedule}>Ir para o Cronograma</button>
+        <button className="button" onClick={handleClearActivities}>Limpar Atividades</button>
+      </div>
+    </body>
+
   );
 }
 

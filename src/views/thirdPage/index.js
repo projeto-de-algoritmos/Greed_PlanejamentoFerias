@@ -3,27 +3,23 @@ import './index.css';
 
 
 function greedyActivity(activities) {
-  if (!activities || activities.length === 0) {
-    return [];
-  }
   // Ordena as atividades pelo horário de fim em ordem crescente
   activities.sort((a, b) => a.end - b.end);
-  // Adiciona a primeira atividade como selecionada
-  const selectedActivities = [activities[0]];
-  // Armazena o horário de fim da última atividade selecionada
-  let lastEndTime = activities[0].end;
 
-  // Percorre as atividades restantes
-  for (let i = 1; i < activities.length; i++) {
-    // Verifica se a atividade atual pode ser realizada após a última atividade selecionada
-    if (activities[i].start >= lastEndTime) {
-      selectedActivities.push(activities[i]);
-      lastEndTime = activities[i].end;
+  const selectedActivities = [];
+  let lastEndTime = -Infinity;
+
+  for (const activity of activities) {
+    if (activity.start >= lastEndTime) {
+      selectedActivities.push(activity);
+      lastEndTime = activity.end;
     }
   }
 
   return selectedActivities;
 }
+
+
 function Schedule() {
   const [activities, setActivities] = useState([]);
 
